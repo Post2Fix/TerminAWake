@@ -10,7 +10,9 @@ This app prevents sleep on battery, while charging and when a MacBook lid is clo
 
 - Run ```chmod +x [path to 'awake' file]``` to make it executable
 
-# Simple script execution examples:
+# Running the script
+
+To run the script, browse to the 'awake' file and run it using the following examples:
 
 - ```./awake 90s``` - stay awake for 90 seconds
 
