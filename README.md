@@ -8,7 +8,7 @@ This app prevents sleep on battery, while charging and when a MacBook lid is clo
 
 - Download 'awake' or copy and save it using a text editor (save without an extention)
 
-- Run ```chmod +x [path to awake file]``` to make it executable
+- Run ```chmod +x [path to 'awake' file]``` to make it executable
 
 # Simple script execution examples:
 
