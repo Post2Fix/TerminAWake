@@ -1,0 +1,39 @@
+#!/bin/bash
+
+duration=$1  # Get the duration argument passed to the script
+
+if [[ -z $duration ]]; then
+  # Prevent sleep indefinitely for battery and AC power modes
+  sudo pmset -b disablesleep 1
+  sudo pmset -c disablesleep 1
+
+  echo "Sleep disabled indefinitely. Press Ctrl+C to exit."
+  # Wait for interrupt signal
+  trap "exit" INT
+  while :
+  do
+    sleep 86400  # Sleep for 24 hours (86400 seconds)
+  done
+else
+  # Determine the time unit suffix
+  suffix="${duration: -1}"
+  value="${duration%?}"
+
+  # Convert the duration to seconds
+  case "$suffix" in
+    s) duration_sec="$value" ;;
+    h) duration_sec=$((value * 3600)) ;;
+    *) duration_sec="$((duration * 60))" ;;  # Assume minutes suffix other than 'h' & 's' (including no value)
+  esac
+
+  # Prevent sleep for the specified duration
+  sudo pmset -b disablesleep 1
+  sudo pmset -c disablesleep 1
+
+  # Sleep for the specified duration
+  sleep "$duration_sec"
+
+  # Revert to the default sleep behavior
+  sudo pmset -b disablesleep 0
+  sudo pmset -c disablesleep 0
+fi
