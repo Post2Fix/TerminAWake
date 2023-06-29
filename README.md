@@ -1,23 +1,32 @@
 # Disable MacOS sleep
 
-Create an easily executable script file to disable the MacOS sleep for a time specified during execution.
+Create an executable script file to disable MacOS sleep for a user specified duration.
 
-This app prevents sleep on battery, while charging and when a MacBook lid is closed.
+Sleep is prevented on battery, while charging also when a MacBook lid is closed.
 
-# Instructions
+# Setting up the script for easy usage
 
-- Download 'awake' or copy and save it using a text editor (save without an extention)
+- Download 'awake' or copy and save it using a text editor (without '.sh' file extention)
 
 - Run ```chmod +x [path to 'awake' file]``` to make it executable
 
 # Running the script
 
-To run the script, browse to the 'awake' file and run it using the following examples:
+Browse to the 'awake' file and run it using ```./awake``` to keep prevent sleep indefinitely, or specify a duration, for example:
 
-- ```./awake 90s``` - stay awake for 90 seconds
+- ```./awake 30``` - stay awake for 30 minutes (no suffix defaults to minutes)
+
+- ```./awake 90s``` - stay awake for a minute and a half
 
 - ```./awake 24h``` - stay awake for 24 hours
 
-- ```./awake 30``` - stay awake for 30 minutes (no suffix default)
-
-- ```./awake``` - stay awake indefinitely
+# Future goals
+- Issues
+  - Fix sleep not reenabled (Runnning the script for 1 second (```./ awake 1s```) will always reenable sleep).
+    - If script is terminated mid run
+    - If script is not run with sudo and sleep disabling runs after password is needed again
+- Features
+  - Allow for hours, minutes and seconds to be combined (e.g. ```./awake 1h 30m 25s```)
+  - Convert to MacOS app
+    - Share downloadable executable file instead of script that needs to be setup and executed in terminal
+    - Create a basic MacOS UI based app
