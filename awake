@@ -1,11 +1,17 @@
 #!/bin/bash
 
+# Check if script is run as root
+if [[ $EUID -ne 0 ]]; then
+  echo "This script must be run with root privileges (sudo)."
+  exit 1
+fi
+
 duration=$1  # Get the duration argument that was passed to the script
 
 if [[ -z $duration ]]; then
   # Prevent sleep indefinitely for battery and AC power modes when no argument was passed
-  sudo pmset -b disablesleep 1
-  sudo pmset -c disablesleep 1
+  pmset -b disablesleep 1
+  pmset -c disablesleep 1
 
   echo "Sleep disabled indefinitely. Press Ctrl+C to exit."
   # Wait for user to exit the program to reenable sleep
@@ -27,13 +33,13 @@ else
   esac
 
   # Prevent sleep for the specified duration
-  sudo pmset -b disablesleep 1
-  sudo pmset -c disablesleep 1
+  pmset -b disablesleep 1
+  pmset -c disablesleep 1
 
   # Sleep for the specified duration
   sleep "$duration_sec"
 
   # Revert to the default sleep behavior
-  sudo pmset -b disablesleep 0
-  sudo pmset -c disablesleep 0
+  pmset -b disablesleep 0
+  pmset -c disablesleep 0
 fi
