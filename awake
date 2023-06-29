@@ -8,19 +8,22 @@ fi
 
 duration=$1  # Get the duration argument that was passed to the script
 
-if [[ -z $duration ]]; then
-  # Prevent sleep indefinitely for battery and AC power modes when no argument was passed
-  pmset -b disablesleep 1
-  pmset -c disablesleep 1
+# Function to reenable sleep and quit
+function quit {
+  pmset -b disablesleep 0
+  pmset -c disablesleep 0
+  exit
+}
 
+# Prevent sleep indefinitely for battery and AC power modes when no argument was passed
+pmset -b disablesleep 1
+pmset -c disablesleep 1
+
+if [[ -z $duration ]]; then
   echo "Sleep disabled indefinitely. Press Enter to re-enable sleep."
 
   # Wait for user to press Enter to reenable sleep
   read -r
-
-  # Revert to the default sleep behavior
-  pmset -b disablesleep 0
-  pmset -c disablesleep 0
 else
   # Separate the time & timescale suffixes
   suffix="${duration: -1}"
@@ -33,14 +36,24 @@ else
     *) duration_sec="$((duration * 60))" ;;  # Assume minutes suffix other than 'h' & 's' (including no value)
   esac
 
-  # Prevent sleep for the specified duration
-  pmset -b disablesleep 1
-  pmset -c disablesleep 1
+  echo "Sleep disabled for ${duration_sec} seconds. Press Enter to re-enable sleep."
 
-  # Sleep for the specified duration
-  sleep "$duration_sec"
-
-  # Revert to the default sleep behavior
-  pmset -b disablesleep 0
-  pmset -c disablesleep 0
+  # Sleep for the specified duration in a subshell
+  (
+    sleep "$duration_sec"
+    quit
+  ) &
+  # Save the PID of the subshell
+  sleep_pid=$!
+  # Remove this job from the shell's active list
+  disown $sleep_pid
+  
+  # Wait for user to press Enter
+  read -r
+  
+  # If user pressed Enter, kill the sleep subshell
+  kill "$sleep_pid" 2>/dev/null
 fi
+
+# Call quit function
+quit
