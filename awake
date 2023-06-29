@@ -13,13 +13,14 @@ if [[ -z $duration ]]; then
   pmset -b disablesleep 1
   pmset -c disablesleep 1
 
-  echo "Sleep disabled indefinitely. Press Ctrl+C to exit."
-  # Wait for user to exit the program to reenable sleep
-  trap "exit" INT
-  while :
-  do
-    sleep 86400  # Sleep for 24 hours (86400 seconds) while awake to save energy from running script
-  done
+  echo "Sleep disabled indefinitely. Press Enter to re-enable sleep."
+
+  # Wait for user to press Enter to reenable sleep
+  read -r
+
+  # Revert to the default sleep behavior
+  pmset -b disablesleep 0
+  pmset -c disablesleep 0
 else
   # Separate the time & timescale suffixes
   suffix="${duration: -1}"
