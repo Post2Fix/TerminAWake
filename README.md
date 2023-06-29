@@ -24,7 +24,6 @@ Browse to the 'awake' file and run it using ```./awake``` to keep prevent sleep 
 - Issues
   - Fix sleep not reenabled (Runnning the script for 1 second (```./ awake 1s```) will always reenable sleep).
     - If script is terminated mid run
-    - If script is not run with sudo and sleep disabling runs after password is needed again
 - Features
   - Allow for hours, minutes and seconds to be combined (e.g. ```./awake 1h 30m 25s```)
   - Convert to MacOS app
