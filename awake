@@ -1,59 +1,74 @@
 #!/bin/bash
 
-# Check if script is run as root
+# Check if the script is run as root
+# EUID is an environment variable that represents the effective user ID of the current user
+# The root user has an EUID of 0, so we're checking if the EUID is not 0
+# If the script is not run as root, print an error message and exit with a non-zero status code
 if [[ $EUID -ne 0 ]]; then
   echo "This script must be run with root privileges (sudo)."
   exit 1
 fi
 
-duration=$1  # Get the duration argument that was passed to the script
-
-# Function to reenable sleep and quit
+# Function to reenable sleep and exit the script
+# This function is called when the script needs to exit, to ensure that sleep is reenabled before exiting
 function quit {
+  # Reenable sleep for battery and AC power modes
   pmset -b disablesleep 0
   pmset -c disablesleep 0
+  
+  # Exit the script
   exit
 }
 
-# Prevent sleep indefinitely for battery and AC power modes when no argument was passed
+# Prevent sleep indefinitely for battery and AC power modes
 pmset -b disablesleep 1
 pmset -c disablesleep 1
 
-if [[ -z $duration ]]; then
+# Calculate the total duration in seconds from all arguments
+total_duration_sec=0
+for arg in "$@"; do
+  # Separate the time & timescale suffixes
+  suffix="${arg: -1}"
+  value="${arg%?}"
+
+  # Identify user input's timescale and convert it to seconds
+  case "$suffix" in
+    s) duration_sec="$value" ;;
+    m) duration_sec=$((value * 60)) ;;
+    h) duration_sec=$((value * 3600)) ;;
+    *) echo "Invalid argument: $arg"; exit 1 ;;  # Exit with error message if invalid argument is provided
+  esac
+  
+  # Add the duration in seconds to the total duration
+  total_duration_sec=$((total_duration_sec + duration_sec))
+done
+
+# If no duration was specified, then the total_duration_sec is still 0
+if [[ $total_duration_sec -eq 0 ]]; then
   echo "Sleep disabled indefinitely. Press Enter to re-enable sleep."
 
   # Wait for user to press Enter to reenable sleep
   read -r
 else
-  # Separate the time & timescale suffixes
-  suffix="${duration: -1}"
-  value="${duration%?}"
-
-  # Identify user input's timescale and convert it to seconds
-  case "$suffix" in
-    s) duration_sec="$value" ;;
-    h) duration_sec=$((value * 3600)) ;;
-    *) duration_sec="$((duration * 60))" ;;  # Assume minutes suffix other than 'h' & 's' (including no value)
-  esac
-
-  echo "Sleep disabled for ${duration_sec} seconds. Press Enter to re-enable sleep."
+  echo "Sleep disabled for ${total_duration_sec} seconds. Press Enter to re-enable sleep earlier."
 
   # Sleep for the specified duration in a subshell
   (
-    sleep "$duration_sec"
+    sleep "$total_duration_sec"
     quit
   ) &
   # Save the PID of the subshell
   sleep_pid=$!
-  # Remove this job from the shell's active list
+  # Remove this job from the shell's active list to avoid getting a termination message
   disown $sleep_pid
   
-  # Wait for user to press Enter
-  read -r
-  
-  # If user pressed Enter, kill the sleep subshell
-  kill "$sleep_pid" 2>/dev/null
+  # Wait for user to press Enter or for the sleep duration to pass
+  # If the user presses Enter before the duration is over, kill the sleep command
+  if ! read -t "$total_duration_sec" -r; then
+    # If the read command times out, kill the sleep subshell
+    kill "$sleep_pid" 2>/dev/null
+  fi
 fi
 
-# Call quit function
+# Call quit function to reenable sleep and exit the script
 quit
