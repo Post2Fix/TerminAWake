@@ -1,4 +1,4 @@
-# Disable MacOS sleep
+# Advanced MacOS sleep control
 
 Create an executable script file to disable MacOS sleep for a user specified duration.
 
