@@ -6,14 +6,16 @@ Sleep is prevented on battery & while charging, including when a MacBook lid is 
 
 # Setting up the script is easy
 
-1. Download 'stay-awake' or copy its content into a text editor & save the file as 'stay-awake' (without a file extention)
+1. Download 'stay-awake' or copy its content into a text editor & save the file as 'stay-awake' (without a file extension)
 2. Run ```chmod +x [full path to the 'awake' file]``` to make the file executable. To get the file path:
   i. Drag the 'stay-awake' file into the terminal window, then delete the [comment]
   ii. Secondary click on the file and press the option key to reveal the "copy 'stay-awake' as Pathname" option
 
 # Running the script
 
-Browse to the 'awake' file and run it using ```./awake``` to keep prevent sleep indefinitely, or specify a duration, for example:
+Browse to the 'stay-awake' file and run it using the following examples:
+
+- ```./awake```             - stay awake indefinitely 
 
 - ```./awake 30m```         - stay awake for 30 minutes
 
