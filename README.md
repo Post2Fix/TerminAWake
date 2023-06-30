@@ -1,30 +1,35 @@
 # Advanced MacOS sleep control
 
-Create an executable script file to disable MacOS sleep for a user specified duration.
+Setup this script to disable MacOS sleep for any specified duration.
 
-Sleep is prevented on battery, while charging also when a MacBook lid is closed.
+Sleep is prevented on battery & while charging, including when a MacBook lid is closed.
 
-# Setting up the script for easy usage
+# Setting up the script is easy
 
-- Download 'awake' or copy and save it using a text editor (without '.sh' file extention)
-
-- Run ```chmod +x [path to 'awake' file]``` to make it executable
+1. Download 'stay-awake' or copy its content into a text editor & save the file as 'stay-awake' (without a file extention)
+2. Run ```chmod +x [full path to the 'awake' file]``` to make the file executable. To get the file path:
+  i. Drag the 'stay-awake' file into the terminal window, then delete the [comment]
+  ii. Secondary click on the file and press the option key to reveal the "copy 'stay-awake' as Pathname" option
 
 # Running the script
 
 Browse to the 'awake' file and run it using ```./awake``` to keep prevent sleep indefinitely, or specify a duration, for example:
 
-- ```./awake 30``` - stay awake for 30 minutes (no suffix defaults to minutes)
+- ```./awake 30m```         - stay awake for 30 minutes
 
-- ```./awake 90s``` - stay awake for a minute and a half
+- ```./awake 90s```         - stay awake for a minute and a half
 
-- ```./awake 24h``` - stay awake for 24 hours
+- ```./awake 24h```         - stay awake for 24 hours
+
+- ```./awake 1h 15m 30s```  - stay awake for an hour, 15 minutes & 30 seconds in total
+
+- ```./awake 1m 10s ```     - stay awake for 70 seconds
+
 
 # Future goals
 - Issues
   
 - Features
-  - Allow for hours, minutes and seconds to be combined (e.g. ```./awake 1h 30m 25s```)
   - Convert to MacOS app
     - Share downloadable executable file instead of script that needs to be setup and executed in terminal
     - Create a basic MacOS UI based app
