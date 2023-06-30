@@ -8,14 +8,8 @@ Sleep is prevented on battery & while charging, including when a MacBook lid is 
 
 Reddit user [bmw3393](https://www.reddit.com/user/bmw3393/) schooled me on apps that fail because of bad names and [suggested 'TerminaWake'](https://www.reddit.com/r/mac/comments/14mm3db/comment/jq2n4ew/?context=3) which is such a perfect name 😎 (Also nice logo as TerminAWake)
 
-# Setting up the script is easy
 
-1. Download 'stay-awake' or copy its content into a text editor & save the file as 'stay-awake' (without a file extension)
-2. Run ```chmod +x [full path to the 'awake' file]``` to make the file executable. To get the file path:
-  i. Drag the 'stay-awake' file into the terminal window, then delete the [comment]
-  ii. Secondary click on the file and press the option key to reveal the "copy 'stay-awake' as Pathname" option
-
-# Running the script
+# Using the script
 
 Browse to the 'stay-awake' file and run it using the following examples:
 
