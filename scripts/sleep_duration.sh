@@ -1,17 +1,11 @@
 #!/bin/bash
 
-set_duration() {
-    local duration=$1
-    # Separate the time & timescale suffixes
-    local suffix="${duration: -1}"
-    local value="${duration%?}"
+# sleep_duration.sh
+echo "The system will stay awake for $1."
 
-    # Identify user input's timescale and convert it to seconds
-    case "$suffix" in
-    s) duration_sec="$value" ;;
-    h) duration_sec=$((value * 3600)) ;;
-    *) duration_sec="$((duration * 60))" ;;  # Assume minutes suffix other than 'h' & 's' (including no value)
-    esac
+# Set sleep duration
+sudo pmset sleep 0 displaysleep 0 &>/dev/null
+sudo pmset -a disablesleep 1 &>/dev/null
 
-    echo $duration_sec
-}
+# Sleep timer
+(sleep "$1" && "${SCRIPT_DIR}/sleep_control.sh" enable) &
