@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Variables
-ZIP_FILE_NAME="terminawake.zip"  # Name of the zip file
-FOLDER_NAME="terminawake-folder"  # Name of the unzipped folder
+ZIP_FILE_NAME="TerminAWake-modularity.zip"  # Name of the zip file
+FOLDER_NAME="TerminAWake-modularity"  # Name of the unzipped folder
 SCRIPT_NAME="terminawake.sh"  # Name of the main script
-LINK_NAME="Terminawake"  # Name of the symbolic link on the desktop
+LINK_NAME="TerminAWake"  # Name of the symbolic link on the desktop
 
 # Check the Downloads directory first
 if [[ -f "$HOME/Downloads/$ZIP_FILE_NAME" ]]; then
