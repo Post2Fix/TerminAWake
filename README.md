@@ -8,6 +8,24 @@ Sleep is prevented on battery & while charging, including when a MacBook lid is 
 
 Reddit user [bmw3393](https://www.reddit.com/user/bmw3393/) schooled me on apps that fail because of bad names and [suggested 'TerminaWake'](https://www.reddit.com/r/mac/comments/14mm3db/comment/jq2n4ew/?context=3) which is such a perfect name 😎 (Also nice logo as TerminAWake)
 
+# Setting up
+
+We made it super easy for anyone to setup this Terminal app. If you never used Terminal, give it a try.
+
+## Download the files
+
+- Click the green 'Code' button (top right) and select 'Download Zip'
+- Ensure the download was saved into your Downloads folder
+
+## Set it all up with a single paste
+
+- Open a terminal window (you can press F4 or command+space & search 'Terminal')
+- Paste the following line into the terminal and run the command (press return)
+  - ```unzip ~/Downloads/TerminAWake.zip -d ~/ && chmod +x ~/TerminAWake/setup.sh && ~/TerminAWake/setup.sh```
+
+# Run it
+
+- Open the shortcut
 
 # Using the script
 
