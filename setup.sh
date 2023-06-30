@@ -1,12 +1,14 @@
 #!/bin/bash
 
-# Directory of the script itself
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+# Go to the directory where the script is running
+cd "$(dirname "$0")"
 
-# List of all script files
-scripts=("terminawake.sh" "scripts/display_control.sh" "scripts/lock_control.sh" "scripts/sleep_abort.sh" "scripts/sleep_control.sh" "scripts/sleep_duration.sh" "scripts/user_input.sh")
+# Make all scripts executable
+chmod +x terminawake.sh
+chmod +x scripts/sleep_abort.sh
+chmod +x scripts/sleep_control.sh
+chmod +x scripts/sleep_duration.sh
+chmod +x scripts/listener.sh
 
-# Loop over all scripts, making them executable
-for script in "${scripts[@]}"; do
-    chmod +x "$DIR/$script"
-done
+# Create a symbolic link on Desktop
+ln -s "$(pwd)/terminawake.sh" ~/Desktop/TerminAwake
