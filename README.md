@@ -4,6 +4,10 @@ Setup this script to disable MacOS sleep for any specified duration.
 
 Sleep is prevented on battery & while charging, including when a MacBook lid is closed.
 
+# Credits
+
+Reddit user [bmw3393](https://www.reddit.com/user/bmw3393/) schooled me on apps that fail because of bad names and [suggested 'TerminaWake'](https://www.reddit.com/r/mac/comments/14mm3db/comment/jq2n4ew/?context=3) which is such a perfect name 😎 (Also nice logo as TerminAWake)
+
 # Setting up the script is easy
 
 1. Download 'stay-awake' or copy its content into a text editor & save the file as 'stay-awake' (without a file extension)
