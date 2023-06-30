@@ -1,0 +1,8 @@
+# Map of the files in this program. Fucntions are split according to an obvious naming logic in sticking to KISS (Keep It Simple & Stupid) logic for mainatainabilitie's sake.. 
+# This file isn't used by this program
+
+├── main.sh         # The script users will run
+├── scripts/        # The folder for helper scripts
+│   ├── sleep_control.sh
+│   ├── set_duration.sh
+│   ├── abort_sleep.sh
