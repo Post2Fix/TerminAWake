@@ -21,9 +21,7 @@ We made it super easy for anyone to setup this Terminal app. If you never used T
 
 - Open a terminal window (you can press F4 or command+space & search 'Terminal')
 - Paste the following line into the terminal and run the command (press return)
-  - ```unzip ~/Downloads/TerminAWake.zip -d ~/ && chmod +x ~/TerminAWake/setup.sh && ~/TerminAWake/setup.sh```
-  - If working in the modularity-revert branch run ```unzip ~/Downloads/TerminAWake-modularity.zip -d ~/ && chmod +x ~/TerminAWake-modularity/setup.sh && ~/TerminAWake-modularity/setup.sh``` instead.
-
+  - ```unzip ~/Downloads/TerminAWake*.zip -d ~/ && chmod +x ~/TerminAWake*/setup.sh && ~/TerminAWake*/setup.sh```
 
 # Run it
 
