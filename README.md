@@ -20,8 +20,11 @@ We made it super easy for anyone to setup this Terminal app. If you never used T
 ## Set it all up with a single paste
 
 - Open a terminal window (you can press F4 or command+space & search 'Terminal')
-- Paste the following line into the terminal and run the command (press return)
-  - ```unzip ~/Downloads/TerminAWake*.zip -d ~/ && chmod +x ~/TerminAWake*/setup.sh && ~/TerminAWake*/setup.sh```
+- Paste this command into the terminal and run it
+
+```bash
+unzip ~/Downloads/TerminAWake*.zip -d ~/ && chmod +x ~/TerminAWake*/setup.sh && ~/TerminAWake*/setup.sh
+```
 
 # Run it
 
