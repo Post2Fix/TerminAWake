@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Check if the script is run with sudo
+if [ "$EUID" -ne 0 ]
+  then echo "Please run as root"
+  exit
+fi
+
 # The directory where the helper scripts are located
 SCRIPTS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)/scripts"
 
