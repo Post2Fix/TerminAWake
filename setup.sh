@@ -1,23 +1,36 @@
 #!/bin/bash
 
-# Variables
-ZIP_FILE_NAME="TerminAWake-modularity-revert.zip"  # Name of the zip file
-FOLDER_NAME="TerminAWake-modularity-revert"  # Name of the unzipped folder
+# Constants
 SCRIPT_NAME="terminawake.sh"  # Name of the main script
 LINK_NAME="TerminAWake"  # Name of the symbolic link on the desktop
 
-# Check the Downloads directory first
-if [[ -f "$HOME/Downloads/$ZIP_FILE_NAME" ]]; then
-  TARGET_PATH="$HOME/Downloads/$ZIP_FILE_NAME"
-else
-  # If not found in Downloads, search the home directory excluding hidden directories
-  TARGET_PATH=$(find $HOME -name '.*' -prune -o -name $ZIP_FILE_NAME -print)
-fi
+# Search for zip files starting with 'TerminAWake' in the Downloads directory
+ZIP_FILES=$(find $HOME/Downloads -name 'TerminAWake*.zip')
 
-if [[ -z $TARGET_PATH ]]; then
-  echo "Could not locate $ZIP_FILE_NAME in your home directory or Downloads folder."
+# Convert the string to an array
+ZIP_FILES=($ZIP_FILES)
+
+# If no such file is found
+if [ ${#ZIP_FILES[@]} -eq 0 ]; then
+  echo "Could not locate a zip file starting with 'TerminAWake' in your Downloads folder."
   exit 1
 fi
+
+# If more than one such file is found, ask the user to select one
+if [ ${#ZIP_FILES[@]} -gt 1 ]; then
+  echo "Multiple 'TerminAWake*.zip' files found. Please select one:"
+  select TARGET_PATH in "${ZIP_FILES[@]}"; do
+    if [[ -n $TARGET_PATH ]]; then
+      break
+    fi
+  done
+else
+  TARGET_PATH=${ZIP_FILES[0]}
+fi
+
+# Extract the zip file and folder names from the path
+ZIP_FILE_NAME=$(basename "$TARGET_PATH")
+FOLDER_NAME=${ZIP_FILE_NAME%.zip}
 
 # Determine the directory of the located zip file
 DIR_PATH=$(dirname "$TARGET_PATH")
