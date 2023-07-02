@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source "$(dirname "$0")/sleep_control.sh"
+source "$SCRIPTS_DIR/sleep_control.sh"
 
 abort_sleep() {
     local duration_sec=$1
