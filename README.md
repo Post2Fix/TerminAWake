@@ -4,7 +4,7 @@ Setup this script to disable MacOS sleep for any specified duration.
 
 Sleep is prevented on battery & while charging, including when a MacBook lid is closed.
 
-## Features in this version
+## Features
 
 - Launch to disable sleep
 - Press the return key to reenable sleep anytime (in app instruction)
