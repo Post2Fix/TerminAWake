@@ -16,11 +16,11 @@ Sleep is prevented on battery & while charging, including when a MacBook lid is 
 
 We made it super easy for anyone to setup, even if you never used a terrminal.
 
-# Save the app to your Downloads folder
+### Save the app to your Downloads folder
 
 - Click the green 'Code' button (top right) and select ['Download Zip' downbload with this link](https://github.com/Post2Fix/TerminAWake/archive/refs/heads/modularity-revert.zip) (Make sure to save it into your Downloads folder!)
 
-# Setup by pasting a single command
+### Setup by pasting a single command
 
 - Open a terminal window (you can press F4 or command+space & search 'Terminal')
 - Click the copy icon and paste into your Terminal (Press 'return' to run it)
@@ -28,11 +28,11 @@ We made it super easy for anyone to setup, even if you never used a terrminal.
 unzip ~/Downloads/TerminAWake*.zip -d ~/ && chmod +x ~/TerminAWake*/setup.sh && ~/TerminAWake*/setup.sh
 ```
 
-# Launch the app
+### Launch the app
 
 A shortcut was created where you chose to deploy the app.
 
-# Future goals
+## Future goals
 - Issues
   
 - Features
