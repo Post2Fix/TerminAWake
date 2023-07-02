@@ -1,31 +1,37 @@
 #!/bin/bash
 
-# Save current terminal settings
-saved_stty=$(stty -g)
+# Include the display control script
+source "$(dirname "$0")/display_control.sh"
 
-# Set terminal to raw mode to detect individual keypresses
-stty raw -echo
+# listener.sh
 
-echo "Press 'a' for action A, 'b' for action B, or 'q' to quit."
+listen_commands() {
+    stty -icanon -echo min 1 time 0
 
-# Reset terminal settings when script exits
-trap "stty $saved_stty" EXIT
+    while true; do
+        read -r key
+        case "$key" in
+            d)
+                # Sleep the display
+                sleep_display
+                ;;
+            l)
+                # pmset does not have an equivalent for locking the screen
+                ;;
+            r)
+                # Enabling sleep
+                enable_sleep
+                ;;
+            q)
+                echo "Quitting..."
+                break
+                ;;
+            *)
+                echo "Unknown command."
+                ;;
+        esac
+    done
 
-# Read input
-while read -n 1 key; do
-    case $key in
-        a)
-            printf "You selected action A.\n"
-            ;;
-        b)
-            printf "You selected action B.\n"
-            ;;
-        q)
-            printf "Quitting...\n"
-            break
-            ;;
-        *)
-            printf "Invalid option: $key\n"
-            ;;
-    esac
-done
+    # reset terminal settings
+    stty sane
+}
