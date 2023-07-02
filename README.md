@@ -6,34 +6,31 @@ Sleep is prevented on battery & while charging, including when a MacBook lid is 
 
 ## Features in this version
 
-### Launch to disable sleep
-### Press the return key to reenable sleep anytime (in app instruction)
-### Multi parameter dleep delay timer input at launch (e.g. 1h 30m 15s)
-### Displays total sleep delay in seconds after launch
-### Very simplifies deployment (download and run a single Terminal command (without a password))
+- Launch to disable sleep
+- Press the return key to reenable sleep anytime (in app instruction)
+- Multi parameter dleep delay timer input at launch (e.g. 1h 30m 15s)
+- Displays total sleep delay in seconds after launch
+- Very simplifies deployment (download and run a single Terminal command (without a password))
 
-# Setting up
+## Setting up
 
 We made it super easy for anyone to setup, even if you never used a terrminal.
 
-## Save the app to your Downloads folder
+# Save the app to your Downloads folder
 
-- Click the green 'Code' button (top right) and select ['Download Zip' or use this link](https://github.com/Post2Fix/TerminAWake/archive/refs/heads/modularity-revert.zip)
-- Make sure to save it into your Downloads folder
+- Click the green 'Code' button (top right) and select ['Download Zip' downbload with this link](https://github.com/Post2Fix/TerminAWake/archive/refs/heads/modularity-revert.zip) (Make sure to save it into your Downloads folder!)
 
-## Set it all up with a single paste
+# Setup by pasting a single command
 
 - Open a terminal window (you can press F4 or command+space & search 'Terminal')
-- Copy this line (you can click the copy icon)
+- Click the copy icon and paste into your Terminal (Press 'return' to run it)
 ```bash
 unzip ~/Downloads/TerminAWake*.zip -d ~/ && chmod +x ~/TerminAWake*/setup.sh && ~/TerminAWake*/setup.sh
 ```
-- Paste it into the terminal and hit the 'return' button to run it
 
-# Run it
+# Launch the app
 
-- A shortcut was created. Use it to run the app
-
+A shortcut was created where you chose to deploy the app.
 
 # Future goals
 - Issues
