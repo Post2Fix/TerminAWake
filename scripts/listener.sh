@@ -11,7 +11,7 @@ source "$SCRIPTS_DIR/sleep_control.sh"
 listen_commands() {
     
     old_stty_cfg=$(stty -g) # saving the old stty terminal configuration before modifying it, to restore it after the listen_commands function completes. This helps avoid Terminal side effects
-    stty raw -echo min 0 # Setting terminal to non-canonical mode
+    stty raw -echo min 0 # non-canonical mode allows processing keystrokes immediately without waiting for a newline character
 
     # Loop for reading commands
     while IFS= read -r -n 1 key; do # -n 1 reads one character at a time without waiting for a newline so the script responds immediately to keystroke. -r prevents backslashes from being interpreted as escape characters
