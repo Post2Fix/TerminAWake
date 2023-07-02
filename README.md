@@ -14,7 +14,7 @@ Sleep is prevented on battery & while charging, including when a MacBook lid is 
 
 ## Setup the app
 
-We made it super easy for anyone to setup, even if you never used a terrminal.
+We made it easy for non Terrminal users.
 
 ### Save the app to your Downloads folder
 
