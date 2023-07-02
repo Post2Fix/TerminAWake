@@ -1,38 +1,34 @@
 # Advanced MacOS sleep control
 
-Setup this script to disable MacOS sleep for any specified duration.
+Advanced MacOS sleep manager.
 
-Sleep is prevented on battery & while charging, including when a MacBook lid is closed.
+## Features
 
-# Credits
+- Disable sleep indfinitely at launch if no delay timer is specified
+- Prevent sleep on battery & while charging, including when a MacBook lid is closed.
+- Press 'return' to enable sleep (on-screen instruction)
+- State hours, minutes and seconds for the sleep delay timer at launch (e.g. ./terminawake 1h 30m 15s)
+- Displays total sleep delay in seconds after launch
+- Unique, and very simple deployment (single Terminal command (without password) to setup from the downloaded repo)
 
-Reddit user [bmw3393](https://www.reddit.com/user/bmw3393/) schooled me on apps that fail because of bad names and [suggested 'TerminaWake'](https://www.reddit.com/r/mac/comments/14mm3db/comment/jq2n4ew/?context=3) which is such a perfect name 😎 (Also nice logo as TerminAWake)
+## Easy setup
 
-# Setting up the script is easy
+1. [Download this repository](https://github.com/Post2Fix/TerminAWake.git) to your Downloads folder
+2. Run this single command in your Terminal (no password required)
+- Copy the command (Click the copy icon)
+```bash
+unzip ~/Downloads/TerminAWake*.zip -d ~/ && chmod +x ~/TerminAWake*/setup.sh && ~/TerminAWake*/setup.sh
+```
+- Run the command
+  - Start a Terminal (Press F4 or [command + space] & search 'Terminal')
+  - Paste the command into your Terminal (command + v)
+  - Run it (Press 'return')
 
-1. Download 'stay-awake' or copy its content into a text editor & save the file as 'stay-awake' (without a file extension)
-2. Run ```chmod +x [full path to the 'awake' file]``` to make the file executable. To get the file path:
-  i. Drag the 'stay-awake' file into the terminal window, then delete the [comment]
-  ii. Secondary click on the file and press the option key to reveal the "copy 'stay-awake' as Pathname" option
+### Launch the app
 
-# Running the script
+A shortcut was created where you chose to deploy the app.
 
-Browse to the 'stay-awake' file and run it using the following examples:
-
-- ```./awake```             - stay awake indefinitely 
-
-- ```./awake 30m```         - stay awake for 30 minutes
-
-- ```./awake 90s```         - stay awake for a minute and a half
-
-- ```./awake 24h```         - stay awake for 24 hours
-
-- ```./awake 1h 15m 30s```  - stay awake for an hour, 15 minutes & 30 seconds in total
-
-- ```./awake 1m 10s ```     - stay awake for 70 seconds
-
-
-# Future goals
+## Future goals
 - Issues
   
 - Features
