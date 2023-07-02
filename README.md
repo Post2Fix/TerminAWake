@@ -1,16 +1,15 @@
 # Advanced MacOS sleep control
 
-Setup this script to disable MacOS sleep for any specified duration.
-
-Sleep is prevented on battery & while charging, including when a MacBook lid is closed.
+Advanced MacOS sleep manager.
 
 ## Features
 
-- Launch to disable sleep
-- Press the return key to reenable sleep anytime (in app instruction)
-- Multi parameter dleep delay timer input at launch (e.g. 1h 30m 15s)
+- Disable sleep indfinitely at launch if no delay timer is specified
+- Prevent sleep on battery & while charging, including when a MacBook lid is closed.
+- Press 'return' to enable sleep (on-screen instruction)
+- State hours, minutes and seconds for the sleep delay timer at launch (e.g. ./terminawake 1h 30m 15s)
 - Displays total sleep delay in seconds after launch
-- Very simplifies deployment (download and run a single Terminal command (without a password))
+- Unique, and very simple deployment (single Terminal command (without password) to setup from the downloaded repo)
 
 ## Setup the app
 
