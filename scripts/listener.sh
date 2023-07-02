@@ -7,31 +7,40 @@ SCRIPTS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
 source "$SCRIPTS_DIR/display_control.sh"
 source "$SCRIPTS_DIR/sleep_control.sh"
 
+# Instruction string
+instructions="Press 'd' to sleep display, 'l' to lock screen, 'r' to enable sleep, or 'q' to quit."
+
 # Function to listen to user commands
 listen_commands() {
     
-    old_stty_cfg=$(stty -g) # saving the old stty terminal configuration before modifying it, to restore it after the listen_commands function completes. This helps avoid Terminal side effects
-    stty raw -echo min 0 # non-canonical mode allows processing keystrokes immediately without waiting for a newline character
+    # Setting terminal to non-canonical mode
+    old_stty_cfg=$(stty -g)
+    stty raw -echo min 0
 
+    echo "$instructions"
     # Loop for reading commands
     while IFS= read -r -n 1 key; do # -n 1 reads one character at a time without waiting for a newline so the script responds immediately to keystroke. -r prevents backslashes from being interpreted as escape characters
         case "$key" in
             d)  # If 'd', sleep the display
+                echo -e "\rSleeping display...                                "
                 sleep_display  # Calls the function from display_control.sh
                 ;;
             l)  # If 'l', there is no pmset equivalent for locking the screen
                 ;;
             r)  # If 'r', enable system sleep
+                echo -e "\rEnabling system sleep...                           "
                 enable_sleep  # Calls the function from sleep_control.sh
                 ;;
             q)  # If 'q', break the loop
-                echo "Quitting..."
+                echo -e "\rQuitting...                                       "
                 break
                 ;;
-            *)  # If anything else, print "Unknown command."
-                echo "Unknown command."
+            *)  # For unrecognized keystrokes, print "Unknown command."
+                echo -e "\rUnknown command.                                  "
                 ;;
         esac
+        sleep 1  # This can be adjusted as needed to hold the message on the screen
+        echo -e "\r$instructions"
     done
 
     # Restoring terminal settings
