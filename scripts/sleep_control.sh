@@ -1,11 +1,13 @@
 #!/bin/bash
 
+# Function to disable sleep
 disable_sleep() {
-    sudo pmset -b disablesleep 1
-    sudo pmset -c disablesleep 1
+    echo "Disabling system sleep..."
+    sudo pmset -a disablesleep 1 &>/dev/null
 }
 
+# Function to enable sleep
 enable_sleep() {
-    sudo pmset -b disablesleep 0
-    sudo pmset -c disablesleep 0
+    echo "Enabling system sleep..."
+    sudo pmset -a disablesleep 0 &>/dev/null
 }
