@@ -18,7 +18,7 @@ We made it super easy for anyone to setup, even if you never used a terrminal.
 
 ### Save the app to your Downloads folder
 
-- Click the green 'Code' button (top right) and select ['Download Zip', or downbload with this link.](https://github.com/Post2Fix/TerminAWake/archive/refs/heads/modularity-revert.zip) (Make sure to save it into your Downloads folder!)
+- Click the green 'Code' button (top right) and select ['Download Zip', or use this link](https://github.com/Post2Fix/TerminAWake/archive/refs/heads/modularity-revert.zip). (Save it to the Downloads folder!)
 
 ### Setup by pasting a single command
 
