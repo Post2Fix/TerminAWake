@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Check if the script is run with sudo
-if [ "$EUID" -ne 0 ]
-  then echo "Please run as root"
+if [ "$EUID" -ne 0 ]; then
+  echo "Please run using sudo"
   exit
 fi
 
