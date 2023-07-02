@@ -12,7 +12,7 @@ Sleep is prevented on battery & while charging, including when a MacBook lid is 
 - Displays total sleep delay in seconds after launch
 - Very simplifies deployment (download and run a single Terminal command (without a password))
 
-## Setting up
+## Setup the app
 
 We made it super easy for anyone to setup, even if you never used a terrminal.
 
