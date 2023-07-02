@@ -16,15 +16,16 @@ Advanced MacOS sleep manager.
 1. Save the app to your Downloads folder
 - [Download this repository](https://github.com/Post2Fix/TerminAWake.git) (Save to Downloads folder!)
 
-2. Pasting this single command inyour Terminal
+2. Run this single command (no password required)
 
-- Copy this command (Click the copy icon)
+- Copy the command (Click the copy icon)
 ```bash
 unzip ~/Downloads/TerminAWake*.zip -d ~/ && chmod +x ~/TerminAWake*/setup.sh && ~/TerminAWake*/setup.sh
 ```
-- Start a Terminal (Press F4 or [command + space] & search 'Terminal')
-- Paste the command into your Terminal (command + v)
-- Run it (Press 'return')
+- Run the command
+  - Start a Terminal (Press F4 or [command + space] & search 'Terminal')
+  - Paste the command into your Terminal (command + v)
+  - Run it (Press 'return')
 
 ### Launch the app
 
