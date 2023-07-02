@@ -4,32 +4,35 @@ Setup this script to disable MacOS sleep for any specified duration.
 
 Sleep is prevented on battery & while charging, including when a MacBook lid is closed.
 
-# Credits
+## Features in this version
 
-Reddit user [bmw3393](https://www.reddit.com/user/bmw3393/) schooled me on apps that fail because of bad names and [suggested 'TerminaWake'](https://www.reddit.com/r/mac/comments/14mm3db/comment/jq2n4ew/?context=3) which is such a perfect name 😎 (Also nice logo as TerminAWake)
+### Launch to disable sleep
+### Press the return key to reenable sleep anytime (in app instruction)
+### Multi parameter dleep delay timer input at launch (e.g. 1h 30m 15s)
+### Displays total sleep delay in seconds after launch
+### Very simplifies deployment (download and run a single Terminal command (without a password))
 
-# Setting up the script is easy
+# Setting up
 
-1. Download 'stay-awake' or copy its content into a text editor & save the file as 'stay-awake' (without a file extension)
-2. Run ```chmod +x [full path to the 'awake' file]``` to make the file executable. To get the file path:
-  i. Drag the 'stay-awake' file into the terminal window, then delete the [comment]
-  ii. Secondary click on the file and press the option key to reveal the "copy 'stay-awake' as Pathname" option
+We made it super easy for anyone to setup, even if you never used a terrminal.
 
-# Running the script
+## Save the app to your Downloads folder
 
-Browse to the 'stay-awake' file and run it using the following examples:
+- Click the green 'Code' button (top right) and select ['Download Zip' or use this link](https://github.com/Post2Fix/TerminAWake/archive/refs/heads/modularity-revert.zip)
+- Make sure to save it into your Downloads folder
 
-- ```./awake```             - stay awake indefinitely 
+## Set it all up with a single paste
 
-- ```./awake 30m```         - stay awake for 30 minutes
+- Open a terminal window (you can press F4 or command+space & search 'Terminal')
+- Copy this line (you can click the copy icon)
+```bash
+unzip ~/Downloads/TerminAWake*.zip -d ~/ && chmod +x ~/TerminAWake*/setup.sh && ~/TerminAWake*/setup.sh
+```
+- Paste it into the terminal and hit the 'return' button to run it
 
-- ```./awake 90s```         - stay awake for a minute and a half
+# Run it
 
-- ```./awake 24h```         - stay awake for 24 hours
-
-- ```./awake 1h 15m 30s```  - stay awake for an hour, 15 minutes & 30 seconds in total
-
-- ```./awake 1m 10s ```     - stay awake for 70 seconds
+- A shortcut was created. Use it to run the app
 
 
 # Future goals
