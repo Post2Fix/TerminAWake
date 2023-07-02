@@ -1,7 +1,12 @@
 #!/bin/bash
 
-# Include the display control script
-source "$(dirname "$0")/display_control.sh"
+# Get the directory where the helper scripts are located
+# $(dirname "$0") gets the current script directory
+SCRIPTS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
+
+# Include the display control script and the sleep control script
+source "$SCRIPTS_DIR/display_control.sh"
+source "$SCRIPTS_DIR/sleep_control.sh"
 
 # Function to listen to user commands
 listen_commands() {
