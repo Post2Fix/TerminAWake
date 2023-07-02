@@ -10,9 +10,9 @@ fi
 SCRIPTS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)/scripts"
 
 # Include the helper scripts
-source "$SCRIPTS_DIR/sleep_control.sh"
-source "$SCRIPTS_DIR/sleep_duration.sh"
-source "$SCRIPTS_DIR/sleep_abort.sh"
+SCRIPTS_DIR="$SCRIPTS_DIR" source "$SCRIPTS_DIR/sleep_control.sh"
+SCRIPTS_DIR="$SCRIPTS_DIR" source "$SCRIPTS_DIR/sleep_duration.sh"
+SCRIPTS_DIR="$SCRIPTS_DIR" source "$SCRIPTS_DIR/sleep_abort.sh"
 
 disable_indefinitely() {
     # Prevent sleep indefinitely for battery and AC power modes when no argument was passed
