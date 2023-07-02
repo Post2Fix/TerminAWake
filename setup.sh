@@ -25,8 +25,10 @@ DIR_PATH=$(dirname "$TARGET_PATH")
 # Determine the unzipped folder name by removing the ".zip" from the zip file name
 FOLDER_NAME=$(basename "$TARGET_PATH" $ZIP_FILE_NAME_END)
 
-# Determine the paths for unzipping and the script
+# Determine the path for unzipping
 UNZIP_PATH="$DIR_PATH/$FOLDER_NAME"
+
+# Determine the path for the script
 SCRIPT_PATH="$UNZIP_PATH/terminawake.sh"
 
 # Unzip the located zip file
