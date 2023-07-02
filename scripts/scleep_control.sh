@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Function to disable sleep
 disable_sleep() {
     echo "Disabling system sleep..."
