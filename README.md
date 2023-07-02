@@ -11,16 +11,12 @@ Advanced MacOS sleep manager.
 - Displays total sleep delay in seconds after launch
 - Unique, and very simple deployment (single Terminal command (without password) to setup from the downloaded repo)
 
-## Setup the app
+## Easy setup
 
-We made it easy for non Terrminal users.
-
-### Save the app to your Downloads folder
-
+1. Save the app to your Downloads folder
 - Click the green 'Code' button (top right) and select ['Download Zip', or use this link](https://github.com/Post2Fix/TerminAWake/archive/refs/heads/modularity-revert.zip). (Save it to the Downloads folder!)
 
-### Setup by pasting a single command
-
+2. Setup by pasting a single command
 - Open a terminal window (you can press F4 or command+space & search 'Terminal')
 - Click the copy icon and paste into your Terminal (Press 'return' to run it)
 ```bash
