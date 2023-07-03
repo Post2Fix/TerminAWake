@@ -1,14 +1,23 @@
 #!/bin/bash
 
-# Function to disable sleep
-# pmset is a utility that manipulates power management settings
+# Define a function to disable system sleep
 disable_sleep() {
-    echo "Disabling system sleep..."
-    sudo pmset -a disablesleep 1 &>/dev/null
+    sudo pmset -a disablesleep 1
 }
 
-# Function to enable sleep
+# Define a function to enable system sleep
 enable_sleep() {
-    echo "Enabling system sleep..."
-    sudo pmset -a disablesleep 0 &>/dev/null
+    sudo pmset -a disablesleep 0
+}
+
+# Define a function to toggle system sleep
+toggle_sleep() {
+    local status=$(pmset -g | grep SleepDisabled)
+    if [[ "$status" == *"1"* ]]; then
+        enable_sleep
+        echo -e "\rSleep enabled."
+    else
+        disable_sleep
+        echo -e "\rSleep disabled."
+    fi
 }
