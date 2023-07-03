@@ -8,7 +8,7 @@ source "$SCRIPTS_DIR/display_control.sh"
 source "$SCRIPTS_DIR/sleep_control.sh"
 
 # Instruction string
-instructions="Press 'd' to sleep display, 'l' to lock screen, 'r' to enable sleep, or 'q' to quit."
+instructions="'d' - turn off display, 'l' - lock screen, 'r' - toggle sleep, 'q' - enable sleep and quit."
 
 # Function to listen to user commands
 listen_commands() {
@@ -23,31 +23,31 @@ listen_commands() {
         case "$key" in
             d)  # If 'd', sleep the display
                 sleep_display  # Calls the function from display_control.sh
-                echo -e "\rDisplay turned off. When the display turns off, your lock screen will activates based on the manual 'lock screen' system setting, 'Require password after...'. Setting it to 'immediately' will lock & secure your computer while it stays awake."
+                echo -e "\r\nDisplay turned off. When the display turns off, your lock screen will activates based on the manual 'lock screen' system setting, 'Require password after...'. Setting it to 'immediately' will lock & secure your computer while it stays awake."
                 ;;
             r)  # If 'r', toggle system sleep
                 toggle_sleep  # Calls the function from sleep_control.sh
                 ;;
             t)  # If 't', request sleep timer delay input
-                echo -e "\rPlease enter sleep timer delay in minutes (or '0' for no delay):"
+                echo -e "\r\nPlease enter sleep timer delay in minutes (or '0' for no delay):"
                 read -r delay
-                echo -e "\rPlease enter display sleep delay in minutes (or '0' for no delay):"
+                echo -e "\r\nPlease enter display sleep delay in minutes (or '0' for no delay):"
                 read -r display_delay
                 # Here, add code to apply these delays. You might need to modify terminawake.sh and create additional scripts to handle these values.
                 ;;
             l)  # If 'l', there is no pmset equivalent for locking the screen
-                echo -e "\r'control + command + q' will lock a Mac computer"
+                echo -e "\r\n'control + command + q' will lock a Mac computer"
                 ;;
             q)  # If 'q', break the loop
-                echo -e "\r Restoring settings and quitting..."
+                echo -e "\r\nEnabling sleep and quitting..."
                 break
                 ;;
             *)  # For unrecognized keystrokes, print "Unknown command."
-                echo -e "\rUnknown command."
+                echo -e "\r\nUnknown command."
                 ;;
         esac
         sleep 1  # This can be adjusted as needed to hold the message on the screen
-        echo -e "\r$instructions"
+        echo -e "\r\n\n$instructions"
     done
 
     # Restoring terminal settings
