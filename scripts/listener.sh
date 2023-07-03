@@ -22,21 +22,28 @@ listen_commands() {
     while IFS= read -r -n 1 key; do # -n 1 reads one character at a time without waiting for a newline so the script responds immediately to keystroke. -r prevents backslashes from being interpreted as escape characters
         case "$key" in
             d)  # If 'd', sleep the display
-                echo -e "\rSleeping display...                                "
                 sleep_display  # Calls the function from display_control.sh
+                echo -e "\rDisplay turned off. When the display turns off, your lock screen will activates based on the manual 'lock screen' system setting, 'Require password after...'. Setting it to 'immediately' will lock & secure your computer while it stays awake."
+                ;;
+            r)  # If 'r', toggle system sleep
+                toggle_sleep  # Calls the function from sleep_control.sh
+                ;;
+            t)  # If 't', request sleep timer delay input
+                echo -e "\rPlease enter sleep timer delay in minutes (or '0' for no delay):"
+                read -r delay
+                echo -e "\rPlease enter display sleep delay in minutes (or '0' for no delay):"
+                read -r display_delay
+                # Here, add code to apply these delays. You might need to modify terminawake.sh and create additional scripts to handle these values.
                 ;;
             l)  # If 'l', there is no pmset equivalent for locking the screen
-                ;;
-            r)  # If 'r', enable system sleep
-                echo -e "\rEnabling system sleep...                           "
-                enable_sleep  # Calls the function from sleep_control.sh
+                echo -e "\r'control + command + q' will lock a Mac computer"
                 ;;
             q)  # If 'q', break the loop
-                echo -e "\rQuitting...                                       "
+                echo -e "\r Restoring settings and quitting..."
                 break
                 ;;
             *)  # For unrecognized keystrokes, print "Unknown command."
-                echo -e "\rUnknown command.                                  "
+                echo -e "\rUnknown command."
                 ;;
         esac
         sleep 1  # This can be adjusted as needed to hold the message on the screen
