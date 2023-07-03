@@ -15,9 +15,9 @@ toggle_sleep() {
     local status=$(pmset -g | grep SleepDisabled)
     if [[ "$status" == *"1"* ]]; then
         enable_sleep
-        echo -e "\rSleep enabled."
+        echo -e "\r\nSleep enabled."
     else
         disable_sleep
-        echo -e "\rSleep disabled."
+        echo -e "\r\nSleep disabled."
     fi
 }
