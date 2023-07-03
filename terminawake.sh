@@ -22,7 +22,7 @@ source "$SCRIPTS_DIR/sleep_abort.sh"  # Contains function to abort sleep
 # This function disables system sleep indefinitely
 disable_indefinitely() {
     disable_sleep  # Calls the function from sleep_control.sh
-    echo -e "\r\nSleep disabled indefinitely. Press 'd' to toggle display, 'l' to lock screen, 'r' to enable sleep, or 'q' to quit."
+    echo -e "\r\nSleep disabled indefinitely.\n"
     listen_commands  # Calls the function from listener.sh
     enable_sleep  # Calls the function from sleep_control.sh
 }
@@ -31,7 +31,7 @@ disable_indefinitely() {
 disable_temporarily() {
     local duration_sec=$(set_duration "$1")  # Calls the function from sleep_duration.sh
     disable_sleep  # Calls the function from sleep_control.sh
-    echo -e "\r\nSleep disabled for $1. Press 'd' to toggle display, 'l' to lock screen, 'r' to enable sleep, or 'q' to quit."
+    echo -e "\r\nSleep disabled for $1.\n"
     listen_commands  # Calls the function from listener.sh
     enable_sleep  # Calls the function from sleep_control.sh
 }
