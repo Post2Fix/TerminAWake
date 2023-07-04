@@ -1,6 +1,6 @@
 # Advanced MacOS sleep control
 
-Advanced MacOS sleep manager.
+Advanced macOS sleep manager, based on open-source, enterprize and user friendly, Bash scripts that can also be used directly.
 
 ## Features
 
