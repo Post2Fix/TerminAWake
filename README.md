@@ -25,6 +25,9 @@ unzip ~/Downloads/TerminAWake*.zip -d ~/ && chmod +x ~/TerminAWake*/setup.sh && 
 - A shortcut was created where you chose to deploy the app
 - Launch the script using ```sudo ./terminawake``` from its folder (or use the absolute path to teminawake.sh)
 
+## Using the app
+The app has a UI that guides you on how to use it
+
 ## Future goals
 - Issues
   
@@ -32,3 +35,12 @@ unzip ~/Downloads/TerminAWake*.zip -d ~/ && chmod +x ~/TerminAWake*/setup.sh && 
   - Convert to MacOS app
     - Share downloadable executable file instead of script that needs to be setup and executed in terminal
     - Create a basic MacOS UI based app
+   
+
+## Known issues
+- Locking a Mac when the screen turns off
+  - I'm unaware atm about a way to lock a Mac using Terminal commands. There's a screensaver value that controls the delay to ask for a password after the screen turns off (or after the screensaver is enabled). MacOS security blocks the terminal from changing that value. It might be possible to do by giving Terminal accesibility rights. But the program
+
+## Contributing
+Please feel free to contribute in your favorite way :) 
+It would be appreciated.
