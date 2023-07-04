@@ -17,7 +17,7 @@ Advanced MacOS sleep manager.
 2. Run this single command in your Terminal (no password required)
 - Copy the command (Click the copy icon)
 ```bash
-unzip ~/Downloads/TerminAWake*.zip -d ~/ && chmod +x ~/TerminAWake*/setup.sh && ~/TerminAWake*/setup.sh
+unzip ~/Downloads/TerminAWake*.zip -d ~/ && chmod +x ~/TerminAWake*/setup.sh && ~/TerminAWake*/setup.sh && sudo ~/TerminAWake*/terminawake.sh
 ```
 - Run the command
   - Start a Terminal (Press F4 or [command + space] & search 'Terminal')
