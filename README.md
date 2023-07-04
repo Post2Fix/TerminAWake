@@ -4,10 +4,12 @@ Advanced macOS sleep manager, based on open-source, enterprize and user friendly
 
 ## Features
 
-- Disable sleep indfinitely at launch if no delay timer is specified
+- User guiding interactive terminal app
+- Disable sleep indfinitely at launch (if no delay timer is specified)
+- Specify times disable sleep in hours, minutes and seconds at launch (e.g. ./terminawake 1h 30m 15s), & during runtime (coming soon).
 - Prevent sleep on battery & while charging, including when a MacBook lid is closed.
 - Press 'return' to enable sleep (on-screen instruction)
-- State hours, minutes and seconds for the sleep delay timer at launch (e.g. ./terminawake 1h 30m 15s)
+- 
 - Displays total sleep delay in seconds after launch
 - Unique, and very simple deployment (single Terminal command (without password) to setup from the downloaded repo)
 
