@@ -20,7 +20,7 @@ unzip ~/Downloads/TerminAWake*.zip -d ~/ && chmod +x ~/TerminAWake*/setup.sh && 
 ```
   - To start a Terminal (Press F4 or [command + space] & search 'Terminal')
 
-### Launching the app
+## Launching the app
 
 A shortcut was created where you chose to deploy the app.
 
