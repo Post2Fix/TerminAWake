@@ -22,7 +22,8 @@ unzip ~/Downloads/TerminAWake*.zip -d ~/ && chmod +x ~/TerminAWake*/setup.sh && 
 
 ## Launching the app
 
-A shortcut was created where you chose to deploy the app.
+- A shortcut was created where you chose to deploy the app
+- Launch the script using ```sudo ./terminawake``` from its folder (or use the absolute path to teminawake.sh)
 
 ## Future goals
 - Issues
