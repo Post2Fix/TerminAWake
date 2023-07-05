@@ -26,8 +26,7 @@ listen_commands() {
             3)  # Toggle sleep
                 toggle_sleep  # Calls the function from sleep_control.sh
                 ;;
-            4)  # Set and display a new sleep delay
-                echo -e "\r\nSetting up sleep delay"
+            4)  # Set and display a new wake timer
                 set_timers  # Calls the function from sleep_control.sh
                 ;;
             5)  # Enable sleep and break the loop to quit the program
