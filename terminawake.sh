@@ -29,9 +29,9 @@ disable_indefinitely() {
 
 # This function disables system sleep for a specified duration
 disable_temporarily() {
-    local duration_sec=$(set_duration "$1")  # Calls the function from sleep_duration.sh
+    local duration_sec=$(set_duration)  # Calls the function from sleep_duration.sh
     disable_sleep  # Calls the function from sleep_control.sh
-    echo -e "\r\nSleep disabled for $1.\n"
+    echo -e "\r\nSleep disabled for $duration_sec seconds.\n"
     listen_commands  # Calls the function from listener.sh
     enable_sleep  # Calls the function from sleep_control.sh
 }
@@ -40,5 +40,5 @@ disable_temporarily() {
 if [[ -z $1 ]]; then  # If no argument passed, call disable_indefinitely
     disable_indefinitely
 else  # Else, call disable_temporarily with passed argument
-    disable_temporarily "$1"
+    disable_temporarily
 fi
