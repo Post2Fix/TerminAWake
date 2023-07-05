@@ -9,5 +9,9 @@ source "$SCRIPTS_DIR/sleep_control.sh"
 # Function to abort sleep
 abort_sleep() {
     local duration_sec=$1
-    sleep "$duration_sec" & wait $!
+    sleep "$duration_sec" # Sleep script delay
+
+    # After sleep duration, enable sleep
+    enable_sleep
+    echo -e "\r\nSleep enabled."
 }
